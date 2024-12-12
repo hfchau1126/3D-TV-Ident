@@ -1,0 +1,216 @@
+body
+{
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	margin: 0;
+	text-decoration: none;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.canvas
+{
+	width: 100%;
+	max-width: 1000px;
+	height: auto;
+	border: 5px solid #5c4248;
+	border-radius: 0 10px 10px 0;
+	background-color: #000000;
+}
+
+.canvas canvas
+{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.panel
+{
+	width: 100%;
+	max-width: 1000px;
+	margin: 10px auto;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.slider
+{
+	margin: 5px;
+	font-weight: bold;
+	font-size: 18px;
+	min-width: 200px;
+	position: relative;
+}
+
+.current-value {
+    display: inline-block;
+    background: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    border: 2px solid #99d98c;
+}
+
+.slide {
+    margin: 10px 0;
+    width: 200px;
+}
+
+#anim-btn {
+    width: 300px;
+    height: 70px;
+    margin: 10px;
+    background: #34a0a4;
+    border: 5px solid #99d98c;
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 27px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#anim-btn:hover {
+    animation: bounce 1s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.textbox {
+    display: none; 
+}
+
+.color-picker {
+    gap: 5px;
+    margin: 5px;
+}
+
+.color-picker label {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* Add cloud animation */
+.cloud {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    animation: float 15s infinite linear;
+    z-index: -1;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud::after {
+    width: 60px;
+    height: 60px;
+    top: -25px;
+    right: 15px;
+}
+
+@keyframes float {
+    from { transform: translateX(-150px); }
+    to { transform: translateX(1500px); }
+}
+
+#restart-btn {
+    width: 300px;
+    height: 70px;
+    margin: 10px;
+    background: #34a0a4;
+    border: 5px solid #99d98c;
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 27px;
+    outline: none;
+}
+
+#restart-btn:hover {
+    animation: bounce 1s;
+}
+
+.rotation-controls {
+    margin: 5px;
+    font-size: 14px;
+    display: flex;
+    gap: 15px;
+}
+
+.rotation-controls label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rotation-controls input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+#move-btn {
+    width: 300px;
+    height: 70px;
+    margin: 10px;
+    background: #34a0a4;
+    border: 5px solid #99d98c;
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 27px;
+    outline: none;
+    cursor: pointer;
+}
+
+#move-btn:hover {
+    animation: bounce 1s;
+}
+
+input[type="range"]:disabled,
+input[type="checkbox"]:disabled,
+input[type="color"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+input[type="range"]:disabled:hover,
+input[type="checkbox"]:disabled:hover,
+input[type="color"]:disabled:hover {
+    cursor: not-allowed;
+}
